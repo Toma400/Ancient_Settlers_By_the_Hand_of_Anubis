@@ -1,2 +1,5 @@
+[main]
+version = "0.1.0"
+
 [settings]
 language = "English"

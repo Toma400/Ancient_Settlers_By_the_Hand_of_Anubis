@@ -5,10 +5,6 @@ from kivy.app import App
 from utils import *
 import json
 
-TITLE     = "Temple Settlers: By the Hand of Anubis"
-DEV_CYCLE = "alpha"
-VERSION   = "0.1.0"
-
 def save(num: int, bs: Buildings):
     naming = f"save{num}"
     with open(f"saves/{naming}_bd.json", "w") as bdfile: bdfile.write(json.dumps(bs.read(), indent=4))
@@ -37,10 +33,10 @@ class ScreenRound(Widget):
             #save(0, j)
             #load(0)
 
-class TempleSettlers(App):
+class AncientSettlers(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.title = TITLE
+        self.title = "Ancient Settlers: By the Hand of Anubis"
         self.icon  = "assets/icon.png"
 
     def build(self):
@@ -48,4 +44,4 @@ class TempleSettlers(App):
 
 
 if __name__ == '__main__':
-    TempleSettlers().run()
+    AncientSettlers().run()
