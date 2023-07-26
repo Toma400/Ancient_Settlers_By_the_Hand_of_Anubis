@@ -1,0 +1,47 @@
+[general]
+turn = 25
+invasions = 1
+blessings = 3
+trade = true
+
+[buildings]
+mines = 0
+sawmills = 0
+clayholes = 0
+mints = 0
+market = true
+barracks = 0
+temple = true
+observatorium = 0
+pyramid = false
+
+[improved_buildings]
+mines = 0
+sawmills = 0
+clayholes = 0
+mints = 0
+
+[resources]
+stone = 0
+wood = 0
+clay = 0
+gold = 0
+
+[army]
+chariots = 0
+archers = 0
+swordsmen = 0
+
+[trained_army]
+chariots = 0
+archers = 0
+swordsmen = 0
+
+[points]
+technology = 0
+diplomacy = 0
+
+[improvements]
+army_training = true
+better_recruiting = true
+improved_gathering = true
