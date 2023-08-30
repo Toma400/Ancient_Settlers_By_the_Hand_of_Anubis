@@ -3,7 +3,7 @@ from enum import Enum
 
 class Axis (Enum):
     X = 0
-    Y = 1
+    Y = 100
 
 class WinRes:
     X = GetSystemMetrics(0)
@@ -14,7 +14,8 @@ class WinRes:
         return cls.X if axis == Axis.X else cls.Y
 
 def cell(value, axis: Axis) -> int:
-    return int(value * (WinRes.get(axis) // 100))
+    """Uses reversed system to arcade (Y=0 is top) in <axis.value - ...>"""
+    return int((axis.value - value) * (WinRes.get(axis) // 100))
 
 def cells(x, y) -> (int, int):
     return cell(x, Axis.X), cell(y, Axis.Y)
