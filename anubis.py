@@ -1,47 +1,18 @@
-import kivy
-from objects import BD, Buildings
-from kivy.uix.widget import Widget
-from kivy.app import App
-from utils import *
-import json
+from utils import WinRes as WR
+import arcade
 
-def save(num: int, bs: Buildings):
-    naming = f"save{num}"
-    with open(f"saves/{naming}_bd.json", "w") as bdfile: bdfile.write(json.dumps(bs.read(), indent=4))
+width  = WR.X
+height = WR.Y
+title  = "Ancient Settlers: By the Hand of Anubis"
 
-def load(num: int):
-    naming = f"save{num}"
-    with open(f"saves/{naming}_bd.json", "r") as bdfile: builds = json.loads(bdfile.read())
+# Open the window. Set the window title and dimensions
+arcade.open_window(width, height, title)
 
-    return {"builds": builds}
+# Set the background color
+arcade.set_background_color(arcade.color.WHITE)
 
-class ScreenRound(Widget):
+arcade.start_render()
 
-    def __init__(self, **kwargs):
-        super(ScreenRound, self).__init__(**kwargs)
-        # VALUES
+arcade.finish_render()
 
-        with self.canvas:
-            j = Buildings()
-            # this is how game will load again
-            j.load(load(15)) # the same numer of save (save15)
-            j.draw()
-            #hhmmmmm, let's load the saved game!
-
-            #j.load(load(0))
-            #j.build(1, BD.MINE); j.build(2, BD.MINE)
-            #save(0, j)
-            #load(0)
-
-class AncientSettlers(App):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.title = "Ancient Settlers: By the Hand of Anubis"
-        self.icon  = "assets/icon.png"
-
-    def build(self):
-        return ScreenRound()
-
-
-if __name__ == '__main__':
-    AncientSettlers().run()
+arcade.run()
